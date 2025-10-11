@@ -38,7 +38,7 @@
       ansible.builtin.debug:
         msg: "Student info in json format: {{ student_yaml | to_nice_json }}"
     
-    - name save json to file
+    - name: Save json to file
       ansible.builtin.copy:
         content: "{{ student_yaml | to_nice_json }}"
         dest: "./student- data.json"
