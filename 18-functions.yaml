@@ -5,7 +5,7 @@
       technologies: DevOps, Linux, Shell, Ansible # String variable
       name: Mohit Lakshmi Narasimha
       gmail: Mohit@example.com
-      ipaddress: "192.168.245.4763"
+      ipaddress: "192.168.0.1"
       # dictionary==map
       tags: # List variable
         Application: payment
