@@ -31,29 +31,39 @@
 
     - name: Convert list into map
       ansible.builtin.debug:
-        msg: "List Tags are: {{ listTags | items2dict }}"
+        msg: "List Tags are: {{ listTags | items2dict }}" 
     
     - name: read yaml and take it into the variable
       ansible.builtin.set_fact:
-        student_yaml: "{{ lookup('file', 'student.yaml') | from_yaml }}"
+        student_yaml: "{{ lookup('file', 'student.yaml') | from_yaml }}" # Read yaml file and convert to dictionary
 
     - name: Convert yaml to json
       ansible.builtin.debug:
-        msg: "Student info in json format: {{ student_yaml | to_nice_json }}"
+        msg: "Student info in json format: {{ student_yaml | to_nice_json }}" # Convert to json and print
     
     - name: Save json to file
       ansible.builtin.copy:
-        content: "{{ student_yaml | to_nice_json }}"
+        content: "{{ student_yaml | to_nice_json }}" # Convert to json and save to file
         dest: "./student-data.json"
 
     - name: Convert to Uppercase
       ansible.builtin.debug:
-        msg: "{{ name | upper }}"
+        msg: "{{ name | upper }}" # Convert to uppercase
     
     - name: Convert to Lowercase
       ansible.builtin.debug:
-        msg: "{{ gmail | lower }}"
+        msg: "{{ gmail | lower }}" # Convert to lowercase
 
     - name: Ip address is valid or not
       ansible.builtin.debug:
-        msg: "{{ ipaddress | ipaddr }}"
+        msg: "{{ ipaddress | ipaddr }}" # Returns True or False
+        # msg: "IP address {{ ipaddress }} is valid? {{ ipaddress | ipaddr }}" --- IGNORE ---
+
+    - name: grep for root user
+      ansible.builtin.command: "cat /etc/passwd | grep root"
+      register: grep_output
+      ignore_errors: yes
+    
+    - name: print the command_output
+      ansible.builtin.debug:
+        msg: "{{ command_output }}"
