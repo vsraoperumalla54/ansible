@@ -1,0 +1,17 @@
+- name: user creation
+  hosts: local
+  connection: local
+  become: yes
+  tasks:
+    - name: check user exists or not
+      ansible.builin.command: id mohit
+      register: user_check
+      ignore_errors: yes
+
+    - name: print user_check
+      ansible.builtin.debug:
+        msg: "{{ user_check }}"
+
+    - name: create user if not exists
+      ansible.builtin.command:  useradd mohit
+      when: user_check.rc != 0
