@@ -60,7 +60,8 @@
         # msg: "IP address {{ ipaddress }} is valid? {{ ipaddress | ipaddr }}" --- IGNORE ---
 
     - name: grep for root user
-      ansible.builtin.command: "cat /etc/passwd | grep root"
+      #ansible.builtin.command: "cat /etc/passwd | grep root"
+      ansible.builtin.shell: "cat /etc/passwd | grep root"
       register: command_output
     
     - name: print the command_output
@@ -68,7 +69,8 @@
         msg: "{{ command_output }}"
 
     - name: redirect the output
-      ansible.builtin.shell: ls -lrta > tmp/output.txt
+      #ansible.builtin.command: ls -lrta > tmp/output.txt
+      ansible.builtin.shell: "ls -lrta > tmp/output.txt"
       register: redirect_output
 
     - name: print the redirect_output
