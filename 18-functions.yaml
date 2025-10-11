@@ -56,4 +56,4 @@
 
     - name: Ip address is valid or not
       ansible.builtin.debug:
-        msg: "{{ ipaddress | ansible.utlils.ipv4 }}"
+        msg: "{{ ipaddress | ipaddr('private') }}"
