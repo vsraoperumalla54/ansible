@@ -1,7 +1,15 @@
+# Default variable if not defined
 - name: functions
   hosts: local
   connection: local
+  vars:
+    technologies: DevOps, Linux, Shell, Ansible
   tasks:
   - name: default variable
     ansible.builtin.debug:
-      msg: "Hello {{ name | default('Mohit') }}"
+      msg: "Hello {{ name | default('Mohit') }}" 
+
+# Split string into list
+  - name: Convert string to list
+    ansible.builtin.set_fact:
+      msg: "Technologies are: "{{ technologies | split(,) }}"
