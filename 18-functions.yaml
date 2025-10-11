@@ -1,0 +1,12 @@
+- name: my_function
+  description: This is a sample function
+  parameters:
+    - name: param1
+      type: string
+      description: The first parameter
+    - name: param2
+      type: integer
+      description: The second parameter
+  code: |
+    def my_function(param1, param2):
+        return f"Hello {param1}, you are {param2} years old."
