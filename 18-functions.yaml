@@ -1,12 +1,7 @@
 - name: functions
-  description: This is a sample function
-  parameters:
-    - name: param1
-      type: string
-      description: The first parameter
-    - name: param2
-      type: integer
-      description: The second parameter
-  code: |
-    def functions(param1, param2):
-        return f"Hello {param1}, you are {param2} years old."
+  host: local
+  connection: local
+  tasks:
+  - name: Default variable
+    ansible.builtin.debug:
+      msg: "The default value is {{ my_variable | default('default_value') }}"
