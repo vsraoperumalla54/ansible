@@ -10,5 +10,5 @@
 
 # Split string into list
   - name: Convert string to list
-    ansible.builtin.set_fact:
+    ansible.builtin.debug:
       msg: "Technologies are: "{{ technologies | split(,) }}"
