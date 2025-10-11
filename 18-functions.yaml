@@ -1,4 +1,4 @@
-- name: my_function
+- name: functions
   description: This is a sample function
   parameters:
     - name: param1
@@ -8,5 +8,5 @@
       type: integer
       description: The second parameter
   code: |
-    def my_function(param1, param2):
+    def functions(param1, param2):
         return f"Hello {param1}, you are {param2} years old."
