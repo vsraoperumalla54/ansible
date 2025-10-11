@@ -3,6 +3,8 @@
     connection: local
     vars:
       technologies: DevOps, Linux, Shell, Ansible # String variable
+      name: Mohit Lakshmi Narasimha
+      gmail: Mohit@example.com
       # dictionary==map
       tags: # List variable
         Application: payment
@@ -42,3 +44,11 @@
       ansible.builtin.copy:
         content: "{{ student_yaml | to_nice_json }}"
         dest: "./student-data.json"
+
+    - name: Convert to Uppercase
+      ansible.builtin.debug:
+        msg: "{{ name | upper }}"
+    
+    - name: Convert to Lowercase
+      ansible.builtin.debug:
+        msg: "{{ gmail | lower }}"
